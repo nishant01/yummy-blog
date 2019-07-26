@@ -1,0 +1,25 @@
+<section class="welcome-post-sliders owl-carousel">
+  <% @entries.each do |entry| %>
+    <div class="welcome-single-slide contentful_product">
+      <!-- Recipe Thumb -->
+      <img src="<%= entry.photo.image_url %>" />
+      <!-- Overlay Text -->
+      <div class="project_title">
+        <div class="post-date-commnents d-flex">
+          <a href="#"><%= entry.created_at.strftime('%d %b, %Y') %></a>
+          <a href="#"> Click for Recipe</a>
+        </div>
+        <a data-target="#show-recipe" data-remote="true" href="<%=recipe_path(entry.id)%>" onclick="$('html, body').animate({
+            scrollTop: $('#show-recipe').offset().top
+        }, 2000);">
+          <h5><%= entry.title %></h5>
+        </a>
+      </div>
+    </div>
+  <% end %>
+</section>
+
+<div style="margin-top: 20px"></div>
+
+<section id="show-recipe" class="blog_area section_padding_0_80">
+</section>

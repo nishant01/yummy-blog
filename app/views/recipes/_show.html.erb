@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8">
+      <div class="row">
+        <div class="col-12">
+          <div class="single-post wow fadeInUp" data-wow-delay=".2s">
+            <!-- Recipe Thumb -->
+            <div class="post-thumb">
+              <img src="<%= recipe.fields.has_key?(:photo) ? recipe.photo.image_url : '' %>" alt="">
+            </div>
+            <!-- Recipe Content -->
+            <div class="post-content">
+              <div class="post-meta d-flex">
+                <div class="post-author-date-area d-flex">
+                  <!-- Recipe Calories -->
+                  <div class="post-author">
+                    <a href="#">Calories: <%= recipe.fields.has_key?(:calories) ? recipe.calories : 'N/A'  %> </a>
+                  </div>
+
+                  <!-- Recipe Post Date -->
+                  <div class="post-author">
+                    <a href="#">Posted on: <%= recipe.created_at.strftime('%d %b, %Y') %></a>
+                  </div>
+                  <!-- Recipe Tags -->
+                  <div class="post-date">
+                    <a href="#">Tags: </a>
+                    <% if recipe.fields.has_key?(:tags) %>
+                      <% recipe.tags.each do |tag| %>
+                          <a href="#"><%= tag.name %></a>,
+                      <%end%>
+                    <%else%>
+                        <a href="#">No Tag</a>
+                    <%end%>
+                  </div>
+                </div>
+                <!-- Recipe Comment & Share Area -->
+                <div class="post-comment-share-area d-flex">
+                  <!-- Recipe Favourite -->
+                  <div class="post-favourite">
+                    <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
+                  </div>
+                  <!-- Recipe Comments -->
+                  <div class="post-comments">
+                    <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                  </div>
+                  <!-- Recipe Share -->
+                  <div class="post-share">
+                    <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                  </div>
+                </div>
+              </div>
+              <a href="#">
+                <h5 class="post-headline"><%= recipe.title %> <%= recipe.fields.has_key?(:chef) ? '- By Chef ' + recipe.chef.name : ''  %></h5>
+              </a>
+              <p><%= recipe.description %></p>
+              <a href="#" class="read-more">Continue Reading..</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
