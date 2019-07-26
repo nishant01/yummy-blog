@@ -6,4 +6,4 @@ How to run thsi application:
 
 * Run bundle install
 
-* Rub Rails server
+* Run Rails server
