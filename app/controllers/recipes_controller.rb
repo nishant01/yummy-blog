@@ -3,10 +3,14 @@ class RecipesController < ApplicationController
 
   def index
     @entries = $CONTENTFUL.entries(content_type: 'recipe', include: 2)
+    rescue
+      @entries = {}
   end
 
   def show
     @recipe = $CONTENTFUL.entry(params[:id])
+    rescue
+      @recipe = {}
     respond_to do |format|
       format.html
       format.js

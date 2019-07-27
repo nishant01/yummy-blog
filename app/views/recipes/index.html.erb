@@ -9,9 +9,7 @@
           <a href="#"><%= entry.created_at.strftime('%d %b, %Y') %></a>
           <a href="#"> Click for Recipe</a>
         </div>
-        <a data-target="#show-recipe" data-remote="true" href="<%=recipe_path(entry.id)%>" onclick="$('html, body').animate({
-            scrollTop: $('#show-recipe').offset().top
-        }, 2000);">
+        <a id= "click-to-show-reripe" data-target="#show-recipe" data-remote="true" href="<%=recipe_path(entry.id)%>">
           <h5><%= entry.title %></h5>
         </a>
       </div>

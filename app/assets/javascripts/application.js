@@ -19,6 +19,12 @@
 //= require activestorage
 //= require turbolinks
 
+$(document).on('click', '#click-to-show-reripe', function (e) {
+    $('html, body').animate({
+        scrollTop: $('#show-recipe').offset().top
+    }, 2000);
+});
+
 
 
 

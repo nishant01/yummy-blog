@@ -1,1 +1,5 @@
-$("#show-recipe").html("<%= j render partial: 'show', locals: {recipe: @recipe} %>");
+<% if @recipe.blank?%>
+  $("#show-recipe").html("<%= j render partial: 'empty_results_div', locals: { message: "No Data To Display" } %>");
+<% else %>
+  $("#show-recipe").html("<%= j render partial: 'show', locals: { recipe: @recipe } %>");
+<% end%>
